@@ -1213,14 +1213,14 @@ class Jetpack {
 
 		// Set the default options
 		if ( ! $plan ) {
-			$plan = array( 
-				'product_slug' => 'jetpack_free', 
-				'supports' => array(), 
+			$plan = array(
+				'product_slug' => 'jetpack_free',
+				'supports' => array(),
 			);
 		}
 
 		// Define what paid modules are supported by personal plans
-		$personal_plans = array( 
+		$personal_plans = array(
 			'jetpack_personal',
 			'jetpack_personal_monthly',
 		);
@@ -1257,6 +1257,7 @@ class Jetpack {
 				'akismet',
 				'vaultpress',
 				'seo-tools',
+				'google-analytics',
 			);
 		}
 
@@ -2288,7 +2289,7 @@ class Jetpack {
 	 */
 	public static function get_active_modules() {
 		$active = Jetpack_Options::get_option( 'active_modules' );
-		
+
 		if ( ! is_array( $active ) ) {
 			$active = array();
 		}
