@@ -127,6 +127,7 @@ export const Engagement = ( props ) => {
 			toggle = __( 'Unavailable in Dev Mode' );
 		} else if ( isAdmin ) {
 			if ( ( 'seo-tools' === element[0] && ! hasBusiness ) ||
+					( 'google-analytics' === element[0] && ! hasBusiness ) ||
 					( 'wordads' === element[0] && ! hasPremiumOrBusiness ) ) {
 				toggle = <ProStatus proFeature={ element[0] } />;
 			} else {
@@ -136,6 +137,10 @@ export const Engagement = ( props ) => {
 						activated={ isModuleActive }
 						toggling={ isTogglingModule( element[0] ) }
 						toggleModule={ toggleModule } />;
+			}
+
+			if ( element[0] === 'google-analytics' && ! hasBusiness ) {
+				isModuleActive = false;
 			}
 
 			if ( isPro ) {
